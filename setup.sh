@@ -105,7 +105,7 @@ _setup_cuda() {
 
 _pre_install() {
     sudo apt-get update
-    sudo apt-get upgrade
+    sudo apt-get upgrade -y
     sudo apt-get install git
 }
 
