@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+WSL_EXEC="wsl.exe"
+
 _configure_git() {
     if [ ! -f "${HOME}/.gitconfig.local" ]; then
         if [ -z "${GIT_USERNAME}" ]; then
@@ -97,10 +99,25 @@ _setup_zsh() {
 
 
 _setup_cuda() {
-    sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
-    sh -c 'echo "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64 /" > /etc/apt/sources.list.d/cuda.list'
-    sudo apt-get update
-    sudo apt-get install -y cuda-toolkit-11-0
+    if test -f "$WSL_EXEC"; then
+        echo "wsl.exe found. Installing cuda-toolkit-11-0"
+        sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
+        sh -c 'echo "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64 /" > /etc/apt/sources.list.d/cuda.list'
+        sudo apt-get update
+        sudo apt-get install -y cuda-toolkit-11-0
+    else
+        echo "Not inside WSL. Skipping cuda-toolkit-11-0 install"
+    fi
+}
+
+_update_wsl() {
+    if test -f "$WSL_EXEC"; then
+        echo "wsl.exe found. Updating wsl"
+        uname -r
+        wsl.exe --update
+    else
+        echo "Not inside WSL. Skipping wsl.exe update"
+    fi
 }
 
 _pre_install() {
@@ -110,6 +127,7 @@ _pre_install() {
 }
 
 _pre_install()
+_update_wsl()
 _configure_git()
 _setup_zsh()
 _setup_cuda()
