@@ -1,4 +1,4 @@
-#!/usr/bin/env bash --init-file
+#!/usr/bin/env bash
 
 # abort on errors
 set -e
