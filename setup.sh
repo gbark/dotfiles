@@ -18,15 +18,6 @@ _setup_zsh() {
     # install
     sudo apt-get install zsh -y
 
-    # set zsh as default shell
-    sudo chsh -s /bin/zsh gustaf
-
-    # install zinit
-    # sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
-
-    mkdir ~/.zinit
-    git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
-
     # https://github.com/kornicameister/dotfiles
     echo "
 
@@ -35,10 +26,17 @@ _setup_zsh() {
     source "$HOME/zsh/zinit.zsh"
 
     " >> ~/.zshrc
+    
+    # set zsh as default shell
+    sudo chsh -s /bin/zsh gustaf
+
+    # install zinit
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+
+#     mkdir ~/.zinit
+#     git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
 
 
-    # reload zsh
-    source ~/.zshrc
     echo ">> DONE SETTING UP ZSH AND ZINIT <<"
 }
 
@@ -68,6 +66,10 @@ _pre_install() {
 _pre_install
 _update_wsl
 _gen_ssh
-_setup_zsh
 _setup_cuda
+_setup_zsh
 
+
+# load zsh
+# zsh
+# source ~/.zinit/bin/zinit.zsh
