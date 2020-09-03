@@ -4,14 +4,17 @@
 set -e
 
 _gen_ssh() {
+    echo ">> GENERATING SSH KEY <<"
     ssh-keygen -t rsa -b 4096 -C "gbarkeling@gmail.com"
     eval $(ssh-agent -s)
     ssh-add ~/.ssh/id_rsa
     
     echo "Remember to add public key to Github"
+    echo ">> DONE GENERATING SSH KEY <<"
 }
 
 _setup_zsh() {
+    echo ">> SETTING UP ZSH AND ZINIT <<"
     # install
     sudo apt-get install zsh -y
 
@@ -36,23 +39,30 @@ _setup_zsh() {
 
     # reload zsh
     source ~/.zshrc
+    echo ">> DONE SETTING UP ZSH AND ZINIT <<"
 }
 
 
 _setup_cuda() {
+    echo ">> SETTING CUDA <<"
     sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
     sudo sh -c 'echo "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64 /" > /etc/apt/sources.list.d/cuda.list'
     sudo apt-get install -y cuda-toolkit-11-0
+    echo ">> DONE SETTING CUDA <<"
 }
 
 _update_wsl() {
+    echo ">> UPDATING WSL <<"
     uname -r
     wsl.exe --update
+    echo ">> DONE UPDATING WSL <<"
 }
 
 _pre_install() {
+    echo ">> RUNNING PRE INSTALL <<"
     sudo apt-get update
     sudo apt-get upgrade -y
+    echo ">> DONE RUNNING PRE INSTALL <<"
 }
 
 _pre_install
