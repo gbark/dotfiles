@@ -126,9 +126,9 @@ _pre_install() {
     sudo apt-get install git
 }
 
-_pre_install()
-_update_wsl()
-_configure_git()
-_setup_zsh()
-_setup_cuda()
+_pre_install
+_update_wsl
+_configure_git
+_setup_zsh
+_setup_cuda
 
