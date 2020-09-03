@@ -30,9 +30,8 @@ zinit light zdharma/fast-syntax-highlighting
 # Plugin history-search-multi-word loaded with investigating.
 zinit load zdharma/history-search-multi-word
 
-# Load the pure theme, with zsh-async library that's bundled with it.
-zinit ice pick"async.zsh" src"pure.zsh"
-zinit light sindresorhus/pure
+# Load powerlevel10k theme
+zplugin ice depth=1; zplugin light romkatv/powerlevel10k
 
 # A glance at the new for-syntax – load all of the above
 # plugins with a single command. For more information see:
