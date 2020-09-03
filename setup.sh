@@ -72,5 +72,4 @@ _setup_zsh
 
 
 # load zsh
-# zsh
-# source ~/.zinit/bin/zinit.zsh
+zsh
