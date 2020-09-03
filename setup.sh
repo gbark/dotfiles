@@ -130,5 +130,5 @@ _pre_install()
 _update_wsl()
 _configure_git()
 _setup_zsh()
-# _setup_cuda()
+_setup_cuda()
 
