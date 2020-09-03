@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-_configure_git() {
+# abort on errors
+set -e
+
+_gen_ssh() {
     ssh-keygen -t rsa -b 4096 -C "gbarkeling@gmail.com"
     eval $(ssh-agent -s)
     ssh-add ~/.ssh/id_rsa
@@ -10,10 +13,10 @@ _configure_git() {
 
 _setup_zsh() {
     # install
-    sudo apt-get install zsh
+    sudo apt-get install zsh -y
 
-    # change shell to zsh
-    chsh -s /bin/zsh gustaf
+    # set zsh as default shell
+    sudo chsh -s /bin/zsh gustaf
 
     # install zinit
     # sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
@@ -54,7 +57,7 @@ _pre_install() {
 
 _pre_install
 _update_wsl
-_configure_git
+_gen_ssh
 _setup_zsh
 _setup_cuda
 
