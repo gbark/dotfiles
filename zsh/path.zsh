@@ -9,8 +9,6 @@ if [ ! "$PATH_LOADED" = "true" ]; then
     if [ -d "$HOME/bin" ]; then export PATH="$HOME/bin:$PATH"; fi
     if [ -d "$HOME/.local/bin" ]; then export PATH="$HOME/.local/bin:$PATH"; fi
 
-    # export PATH="$HOME/.tfenv/bin:$PATH"
-    export ZPLUG_LOADFILE="$DOTFILES/.zplugs.zsh"
     export PATH_LOADED="true"
 
     # export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
