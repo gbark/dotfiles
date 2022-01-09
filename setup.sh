@@ -59,15 +59,15 @@ _update_wsl() {
 
 _pre_install() {
     echo ">> RUNNING PRE INSTALL <<"
-    sudo apt-get update
-    sudo apt-get upgrade -y
+    sudo apt update
+    sudo apt upgrade -y
     echo ">> DONE RUNNING PRE INSTALL <<"
 }
 
 _pre_install
-_update_wsl
+# _update_wsl
 _gen_ssh
-_setup_cuda
+# _setup_cuda
 _setup_zsh
 
 
