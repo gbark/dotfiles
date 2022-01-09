@@ -16,7 +16,7 @@ _gen_ssh() {
 _setup_zsh() {
     echo ">> SETTING UP ZSH AND ZINIT <<"
     # install
-    sudo apt-get install zsh -y
+    sudo apt install zsh -y
 
     # https://github.com/kornicameister/dotfiles
     echo "
@@ -31,8 +31,8 @@ _setup_zsh() {
     sudo chsh -s /bin/zsh gustaf
 
     # install zinit
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
-
+    sh -c "$(curl -fsSL https://git.io/zinit-install)"
+    
 #     mkdir ~/.zinit
 #     git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
 
